@@ -1,4 +1,4 @@
-const hostURL = "https://pacific-lowlands-62371.herokuapp.com/";
+const hostURL = "https://nameless-wave-18089.herokuapp.com/";
 
 async function fetchTransaction() {   // return todo data object
     //   console.log('fetching all todos');
