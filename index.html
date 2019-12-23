@@ -18,23 +18,49 @@
         </div>
         <hr>
         <div class="project-metrics">
-            <div id="total-expense">
-                <p>{AMOUNT}</p>
-                <progress value="80" max="100">
-                </progress>
-            </div>
+            <p id="cash-in-hand">{AMOUNT}</p>
+            <progress id = "cash-bar" value="80" max="20000000">
+            </progress>
         </div>
     </header>
     <main>
-        <table id="main-table">
-            <tr>
-                <th>Source</th>
-                <th>Description</th>
-                <th>Type</th>
-                <th>Amount</th>
-                <th>TimeStamp</th>
-            </tr>
-        </table>
+        <div class="transactions">
+            <div>
+                <div class="view-options">
+                    <div id="btn-slider"></div>
+                    <button type="button" class="toggle-btn" onclick="loginfunction()">All</button>
+                    <button type="button" class="toggle-btn" onclick="loginfunction()">Income</button>
+                    <button type="button" class="toggle-btn" onclick="registerfunction()">Expense</button>    
+                </div>
+            </div>
+            <table class="transaction-view" id="main-table">
+                <tr>
+                    <th>Source</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>TimeStamp</th>
+                </tr>
+            </table>
+            <table class="transaction-view" id ="income-table">
+                <tr>
+                    <th>Source</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>TimeStamp</th>
+                </tr>
+            </table>
+            <table class="transaction-view" id ="expense-table">
+                <tr>
+                    <th>Source</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>TimeStamp</th>
+                </tr>
+            </table>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>

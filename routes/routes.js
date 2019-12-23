@@ -260,5 +260,23 @@ app.delete('/api/transaction/:transactionId?', (req,res)=>{
     }
 })
 
+/*------------------------TOOLS------------------------- */
 
+// app.get('api/tools/profitLoss/:projectId',(req,res)=>{
+//     const collection = db.collection(TRANSACTION);
+//     const projectId = req.params.projectId;
+
+//     if(projectId){
+//         const projObj = {'project_id': projectId};
+//         collection.find(projObj).toArray().then(data =>{
+//             // data.forEach(element => {
+//                 // console.log(element);
+//                 res.send({
+//                     message:'success',
+//                     data:data
+//                 })
+//             // });
+//         })
+//     }
+// })
 }
