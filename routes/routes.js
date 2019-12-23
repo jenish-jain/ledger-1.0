@@ -182,9 +182,22 @@ app.get('/api/transaction/:transactionId?/:projectId?/:type?/',(req,res)=>{
                 message:err
             })
         })
+    }if(projectId && type){
+        const searchObj = {'project_id': projectId,'type':type};
+        collection.find(searchObj).toArray().then(data =>{
+            res.send({
+                message:'success',
+                data:data
+            })
+        }).catch(err =>{
+            res.status(400).send({
+                status:'error',
+                message:err
+            })
+        })
     }if(projectId){
-        const projId = {'project_id': projectId};
-        collection.find(projId).toArray().then(data =>{
+        const projObj = {'project_id': projectId};
+        collection.find(projObj).toArray().then(data =>{
             res.send({
                 message:'success',
                 data:data

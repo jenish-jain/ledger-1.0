@@ -10,7 +10,7 @@ async function fetchTransaction(projectId =" ",type=" ") {   // return todo data
   }
 
 async function displayTransaction(){
-  let transactionData = await fetchTransaction(12345,'income');
+  let transactionData = await fetchTransaction(12345,"income");
   let transactionList = transactionData.data;
   transactionList.forEach(createTransaction);
 }
