@@ -1,16 +1,16 @@
 const hostURL = "https://nameless-wave-18089.herokuapp.com/";
 // const hostURL = "https://localhost:3000/"
 
-async function fetchTransaction(filter) {   // return todo data object
+async function fetchTransaction(projectId =" ", type=" ") {   // return todo data object
     //   console.log('fetching all todos');
-    let res = await fetch(hostURL +"api/transaction?");
+    let res = await fetch(hostURL +"api/transaction?"+"projectId="+projectId.toString()+ "&type=" + type);
     let data = await res.json();
     // console.log(data);
     return data
   }
 
 async function displayTransaction(){
-  let transactionData = await fetchTransaction("projectId=12345");
+  let transactionData = await fetchTransaction(12345,"income");
   let transactionList = transactionData.data;
   transactionList.forEach(createTransaction);
 }
