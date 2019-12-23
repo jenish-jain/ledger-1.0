@@ -161,7 +161,7 @@ module.exports = function(app,db){
 })
 
 // get request to get individual or project transaction
-app.get('/api/transaction/:transactionId?/:projectId?/:type?',(req,res)=>{
+app.get('/api/transaction/:transactionId?/:projectId?/:type?/',(req,res)=>{
 
     const collection = db.collection(TRANSACTION);
     const transactionId = req.query.transactionId;
@@ -196,8 +196,8 @@ app.get('/api/transaction/:transactionId?/:projectId?/:type?',(req,res)=>{
             })
         })
     }if(type){
-        const type = {'type': type};
-        collection.find(type).toArray().then(data =>{
+        const tranType = {'type': type};
+        collection.find(tranType).toArray().then(data =>{
             res.send({
                 message:'success',
                 data:data
