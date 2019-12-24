@@ -3,6 +3,8 @@ Ledger
 
 application feature
 -------------------
+- [ ] add a home pade to describe the application
+
 - [x]  allows users to make different project
   
 - [x]  allows user to maintain seperate records for income and expense in

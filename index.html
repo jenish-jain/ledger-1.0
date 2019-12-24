@@ -13,7 +13,7 @@
            <p id="company-name">Ledger</p>
            <div id="user-info">
                <img class="round-icon" src="./assets/user1.jpg">
-               <p id="username">Gilfoyle</p>
+               <p id="username">Father of Anton</p>
            </div> 
         </div>
         <hr>
@@ -39,14 +39,36 @@
     </header>
     <main>
         <div class="transactions">
-            <div>
+            <div class="tools">
                 <div class="view-options">
                     <div id="btn-slider"></div>
                     <button type="button" class="toggle-btn" onclick="showAll()">All</button>
                     <button type="button" class="toggle-btn" onclick="showIncome()">Income</button>
                     <button type="button" class="toggle-btn" onclick="showExpense()">Expense</button>    
                 </div>
+                <button type="button" id="add-transaction" onclick="openModal()">Add new Transaction</button>
             </div>
+            <div id="new-transaction-modal" class="modal">
+
+                <div class="new-transaction-form">
+                  <span class="close">&times;</span>
+                  <form>
+                    <fieldset>
+                    <legend><span class="number">1</span>Transaction Details</legend>
+                    <input type="text" name="source" placeholder="Source Of Transaction *">
+                    <input type="number" name="amount" placeholder="Amount*">
+                    <textarea name="desc" placeholder="Description"></textarea>
+                    <label for="typeOfTran">Type of Transaction</label>
+                    <select id="typeOfTran" name="typeOfTransaction">
+                      <option value="income">Income</option>
+                      <option value="expense">Expense</option>
+                    </select>      
+                    </fieldset>
+                    <input type="submit" value="Add Transaction" />
+                    </form>
+                </div>
+              
+              </div>
             <table class="transaction-view" id="main-table">
                 <tr>
                     <th>Source</th>
