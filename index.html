@@ -18,9 +18,23 @@
         </div>
         <hr>
         <div class="project-metrics">
-            <p id="cash-in-hand">{AMOUNT}</p>
-            <progress id = "cash-bar" value="80" max="20000000">
-            </progress>
+            <div class="text-info">
+                <p class="heading">Total Balance</p>
+                <p id="balance"></p>
+                <p class="heading-2">Profit percentage</p>
+                <p id="profit"></p>
+                <div class = "highlights">
+                    <span class="heading-2">Total Income</span>
+                    <span class="heading-3" id="totalIncome"></span>
+                    <br/>
+                    <span class="heading-2">Total Expense</span>
+                    <span class="heading-3" id="totalExpense"></span>
+                </div>
+            </div>
+            <div class="graph-info">
+                <progress id = "cash-bar" value="80" max="20000000">
+                </progress><span class="heading">Balance vs income</span>
+            </div>
         </div>
     </header>
     <main>
@@ -28,9 +42,9 @@
             <div>
                 <div class="view-options">
                     <div id="btn-slider"></div>
-                    <button type="button" class="toggle-btn" onclick="loginfunction()">All</button>
-                    <button type="button" class="toggle-btn" onclick="loginfunction()">Income</button>
-                    <button type="button" class="toggle-btn" onclick="registerfunction()">Expense</button>    
+                    <button type="button" class="toggle-btn" onclick="showAll()">All</button>
+                    <button type="button" class="toggle-btn" onclick="showIncome()">Income</button>
+                    <button type="button" class="toggle-btn" onclick="showExpense()">Expense</button>    
                 </div>
             </div>
             <table class="transaction-view" id="main-table">
