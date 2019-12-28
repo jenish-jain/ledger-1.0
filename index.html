@@ -52,19 +52,20 @@
 
                 <div class="new-transaction-form">
                   <span class="close">&times;</span>
-                  <form>
+                  <form id="transactionForm" target="_blank">
                     <fieldset>
-                    <legend><span class="number">1</span>Transaction Details</legend>
+                        <legend><span class="number">1</span>Transaction Details</legend>
+                    <input type="text" name="project_id" value="12345">
                     <input type="text" name="source" placeholder="Source Of Transaction *">
                     <input type="number" name="amount" placeholder="Amount*">
-                    <textarea name="desc" placeholder="Description*"></textarea>
+                    <textarea name="description" placeholder="Description*"></textarea>
                     <label for="typeOfTran">Type of Transaction</label>
-                    <select id="typeOfTran" name="typeOfTransaction">
+                    <select id="typeOfTran" name="type">
                       <option value="income">Income</option>
                       <option value="expense">Expense</option>
                     </select>      
                     </fieldset>
-                    <input type="submit" value="Add Transaction" />
+                    <input type="submit" value="Add Transaction"/>
                     </form>
                 </div>
               

@@ -131,7 +131,7 @@ main {
 }
 .transactions {
   background-color: rgb(245, 248, 252);
-  height: 60vh;
+  min-height: 60vh;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -225,7 +225,7 @@ main {
 	padding: 20px;
 	background: #f4f7f8;
 	border-radius: 8px;
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: "Roboto", sans-serif;
 }
 .new-transaction-form fieldset{
 	border: none;
@@ -248,7 +248,7 @@ main {
 .new-transaction-form input[type="url"],
 .new-transaction-form textarea,
 .new-transaction-form select {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: "Roboto", sans-serif;
 	background: rgba(255,255,255,.1);
 	border: none;
 	border-radius: 4px;

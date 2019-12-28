@@ -110,7 +110,7 @@ displayExpense();
 
 
 async function cashInHand(projectId){
-  console.log(hostURL+"api/transaction?projectId="+projectId)
+  // console.log(hostURL+"api/transaction?projectId="+projectId)
   let projData = await fetch(hostURL + "api/transaction?projectId=" + projectId);
   let projDataJson = await projData.json();
   console.log(projDataJson);
@@ -182,4 +182,39 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+
+let transForm = document.getElementById('transactionForm');
+transForm.addEventListener('submit',submitForm)
+async function submitForm(){
+console.log('submitted the transation')
+event.preventDefault();
+let formElem = document.forms.transactionForm.elements;
+// console.log(formElem.project_id.value);
+// console.log(formElem.source.value)
+
+try {
+  console.log("adding transaction");
+  let data = JSON.stringify({
+    project_id:formElem.project_id.value,
+    type:formElem.type.value,
+    amount:formElem.amount.value,
+    description:formElem.description.value,
+    source:formElem.source.value
+
+  });
+  let res = await fetch(hostURL+"api/transaction/", {
+    method: "POST",
+    body: data,
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+  let dataJson = await res.json();
+  console.log("Success:", JSON.stringify(dataJson));
+  // return dataJson;
+} catch (error) {
+  console.error("Error:", error);
+}
 }
