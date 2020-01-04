@@ -133,7 +133,7 @@ main {
   /* position: relative; */
 }
 
-.middle{
+.loader{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -437,4 +437,11 @@ tr td:hover {
 }
 #expense-table {
   left: 200vw;
+}
+
+.delete{
+  color:rgb(136, 136, 136);
+}
+.delete:hover {
+  cursor: pointer;
 }

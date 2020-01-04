@@ -58,11 +58,18 @@ async function createTransaction(transaction) {
     amount.classList.add("expense");
   }
   timestamp.innerText = transaction.timestamp;
+  let del = document.createElement("td");
+  del.classList.add("delete");
+  del.setAttribute("id", transaction._id);
+  del.innerText = "delete";
+  del.setAttribute("onClick", "deleteTransaction()");
+
   row.append(source);
   row.appendChild(description);
   row.appendChild(type);
   row.appendChild(amount);
   row.appendChild(timestamp);
+  row.appendChild(del);
   table.appendChild(row);
 }
 
@@ -80,11 +87,19 @@ async function createIncome(transaction) {
   let timestamp = document.createElement("td");
   amount.classList.add("income");
   timestamp.innerText = transaction.timestamp;
+
+  let del = document.createElement("td");
+  del.classList.add("delete");
+  del.setAttribute("id", transaction._id);
+  del.innerText = "delete";
+  del.setAttribute("onClick", "deleteTransaction()");
+
   row.append(source);
   row.appendChild(description);
   row.appendChild(type);
   row.appendChild(amount);
   row.appendChild(timestamp);
+  row.appendChild(del);
   table.appendChild(row);
 }
 
@@ -102,11 +117,18 @@ async function createExpense(transaction) {
   let timestamp = document.createElement("td");
   amount.classList.add("expense");
   timestamp.innerText = transaction.timestamp;
+  let del = document.createElement("td");
+  del.classList.add("delete");
+  del.setAttribute("id", transaction._id);
+  del.innerText = "delete";
+  del.setAttribute("onClick", "deleteTransaction()");
+
   row.append(source);
   row.appendChild(description);
   row.appendChild(type);
   row.appendChild(amount);
   row.appendChild(timestamp);
+  row.appendChild(del);
   table.appendChild(row);
 }
 
@@ -146,6 +168,16 @@ async function cashInHand(projectId) {
 }
 
 cashInHand("12345");
+
+async function deleteTransaction() {
+  let transactionId = event.target.id;
+  let delUri = hostURL + "api/transaction/"+transactionId;
+  await fetch(delUri, {
+    method: "DELETE",
+    headers: { "content-type": "application/json" }
+  });
+  window.location.reload();
+}
 
 const sliderBtn = document.getElementById("btn-slider");
 function showAll() {
@@ -222,7 +254,7 @@ async function submitForm() {
   } catch (error) {
     console.error("Error:", error);
   }
-  
+
   modal.style.display = "none";
   window.location.reload();
 }
