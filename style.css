@@ -128,19 +128,78 @@ progress::-webkit-progress-value {
 main {
   background: rgb(2, 2, 58);
   padding: 10px;
+  display:block;
+  /* height: fit-content; */
+  /* position: relative; */
 }
+
+.middle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.bar{
+  width: 6px;
+  height: 60px;
+  background: white;
+  display: inline-block;
+  transform-origin: bottom center;
+  animation: loading 1.5s ease-in-out infinite;
+}
+.bar1{
+  animation-delay: 0.1s;
+}
+.bar2{
+  animation-delay: 0.2s;
+}
+.bar3{
+  animation-delay: 0.3s;
+}
+.bar4{
+  animation-delay: 0.4s;
+}
+.bar5{
+  animation-delay: 0.5s;
+}
+.bar6{
+  animation-delay: 0.6s;
+}
+.bar7{
+  animation-delay: 0.7s;
+}
+.bar8{
+  animation-delay: 0.8s;
+}
+@keyframes loading {
+  0%{
+    transform: scaleY(0.1);
+    background: #fff;
+  }
+  50%{
+    transform: scaleY(1);
+    background: #2ecc71;
+  }
+  100%{
+    transform: scaleY(0.1);
+    background: transparent;
+  }
+}
+
+
 .transactions {
   background-color: rgb(245, 248, 252);
   min-height: 60vh;
   border-radius: 5px;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .view-options {
   background-color: rgb(215, 217, 228);
   width: auto;
-  position: relative;
+  position:relative;
 }
 
 #btn-slider {
@@ -167,6 +226,9 @@ main {
   flex-direction: row;
   justify-content: space-between;
   background-color: rgb(215, 217, 228);
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
 
 #add-transaction {
@@ -261,7 +323,7 @@ main {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box; 
 	background-color: #e8eeef;
-	color:#8a97a0;
+	color:rgb(50, 54, 58);
 	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	margin-bottom: 30px;

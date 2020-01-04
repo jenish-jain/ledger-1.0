@@ -10,7 +10,7 @@ header{
     /* background-position:top;
     background-size: cover; */
     position: relative;
-    height:60vh;
+    height:30vw;
 }
 
 .header_bg {
@@ -29,21 +29,21 @@ header{
 
 .company-name{
     font-family: 'Bebas Neue', cursive;
-    font-size:120px;
+    font-size:7vw; /*120px*/
     font-weight: bold;
     color:whitesmoke;
     padding:4rem 0 0 4rem;
 }
 .description{
     font-family:'Roboto', sans-serif;
-    font-size:2rem;
+    font-size:2vw; /* 2rem */
     font-weight: lighter;
     color:whitesmoke;
     margin-left:4rem;
 }
 
 #tablet{
-    height:300px;
+    width:30vw;
     position: absolute;
     right:3vw;
     top:15vh;

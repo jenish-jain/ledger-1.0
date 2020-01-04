@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,36 +8,40 @@
     <link href="style.css" type="text/css" rel="stylesheet">
     <title>Ledger</title>
 </head>
+
 <body>
     <header>
         <div class="top-bar">
-           <p id="company-name">Ledger</p>
-           <div id="user-info">
-               <img class="round-icon" src="./assets/user1.jpg">
-               <p id="username">Father of Anton</p>
-           </div> 
+            <p id="company-name">Ledger</p>
+            <div id="user-info">
+                <img class="round-icon" src="./assets/user1.jpg">
+                <p id="username">Father of Anton</p>
+            </div>
         </div>
+
         <hr>
+
         <div class="project-metrics">
             <div class="text-info">
                 <p class="heading">Total Balance</p>
                 <p id="balance"></p>
                 <p class="heading-2">Profit percentage</p>
                 <p id="profit"></p>
-                <div class = "highlights">
+                <div class="highlights">
                     <span class="heading-2">Total Income</span>
                     <span class="heading-3" id="totalIncome"></span>
-                    <br/>
+                    <br />
                     <span class="heading-2">Total Expense</span>
                     <span class="heading-3" id="totalExpense"></span>
                 </div>
             </div>
             <div class="graph-info">
-                <progress id = "cash-bar" value="80" max="20000000">
+                <progress id="cash-bar" value="80" max="20000000">
                 </progress><span class="heading">Balance vs income</span>
             </div>
         </div>
     </header>
+
     <main>
         <div class="transactions">
             <div class="tools">
@@ -44,32 +49,45 @@
                     <div id="btn-slider"></div>
                     <button type="button" class="toggle-btn" onclick="showAll()">All</button>
                     <button type="button" class="toggle-btn" onclick="showIncome()">Income</button>
-                    <button type="button" class="toggle-btn" onclick="showExpense()">Expense</button>    
+                    <button type="button" class="toggle-btn" onclick="showExpense()">Expense</button>
                 </div>
                 <button type="button" id="add-transaction" onclick="openModal()">Add new Transaction</button>
             </div>
-            <div id="new-transaction-modal" class="modal">
 
+            <div class="middle">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+                <div class="bar bar4"></div>
+                <div class="bar bar5"></div>
+                <div class="bar bar6"></div>
+                <div class="bar bar7"></div>
+                <div class="bar bar8"></div>
+                <br>
+                <div>loading data...</div>
+            </div>
+
+            <div id="new-transaction-modal" class="modal">
                 <div class="new-transaction-form">
-                  <span class="close">&times;</span>
-                  <form id="transactionForm" target="_blank">
-                    <fieldset>
-                        <legend><span class="number">1</span>Transaction Details</legend>
-                    <input type="text" name="project_id" value="12345">
-                    <input type="text" name="source" placeholder="Source Of Transaction *">
-                    <input type="number" name="amount" placeholder="Amount*">
-                    <textarea name="description" placeholder="Description*"></textarea>
-                    <label for="typeOfTran">Type of Transaction</label>
-                    <select id="typeOfTran" name="type">
-                      <option value="income">Income</option>
-                      <option value="expense">Expense</option>
-                    </select>      
-                    </fieldset>
-                    <input type="submit" value="Add Transaction"/>
+                    <span class="close">&times;</span>
+                    <form id="transactionForm" target="_blank">
+                        <fieldset>
+                            <legend><span class="number">1</span>Transaction Details</legend>
+                            <input type="text" name="project_id" value="12345">
+                            <input type="text" name="source" placeholder="Source Of Transaction *">
+                            <input type="number" name="amount" placeholder="Amount*">
+                            <textarea name="description" placeholder="Description*"></textarea>
+                            <label for="typeOfTran">Type of Transaction</label>
+                            <select id="typeOfTran" name="type">
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </fieldset>
+                        <input type="submit" value="Add Transaction" />
                     </form>
                 </div>
-              
-              </div>
+            </div>
+
             <table class="transaction-view" id="main-table">
                 <tr>
                     <th>Source</th>
@@ -79,7 +97,7 @@
                     <th>TimeStamp</th>
                 </tr>
             </table>
-            <table class="transaction-view" id ="income-table">
+            <table class="transaction-view" id="income-table">
                 <tr>
                     <th>Source</th>
                     <th>Description</th>
@@ -88,7 +106,7 @@
                     <th>TimeStamp</th>
                 </tr>
             </table>
-            <table class="transaction-view" id ="expense-table">
+            <table class="transaction-view" id="expense-table">
                 <tr>
                     <th>Source</th>
                     <th>Description</th>
@@ -101,4 +119,5 @@
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>
