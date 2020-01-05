@@ -11,9 +11,11 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(middlewares.preventCROS);
+app.use(express.static("public"))
+
 
 app.get('/',(req,res)=>{
-    res.sendFile('./pages/home/index.html');
+    res.sendFile(__dirname+'/index.html');
 });
 
 console.log('checking connecton to DB...');
