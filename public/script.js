@@ -38,3 +38,4 @@ async function signUpUser(){
   console.log(signUpEle.email.value);
   console.log(signUpEle.password.value);
 }
+
