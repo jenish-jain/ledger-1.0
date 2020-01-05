@@ -12,9 +12,9 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(middlewares.preventCROS);
 
-// app.get('/',(req,res)=>{
-//     res.sendFile('E:/juju/Newton School/Assignments/ledger/index.html');
-// });
+app.get('/',(req,res)=>{
+    res.sendFile('./pages/home/index.html');
+});
 
 console.log('checking connecton to DB...');
 mongodb.MongoClient.connect(DB_URI,(error,dbClient)=>{
