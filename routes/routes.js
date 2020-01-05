@@ -131,13 +131,14 @@ module.exports = function(app,db){
     const body = req.body;
     if(body && body.project_id){
         const collection = db.collection(TRANSACTION);
+        let date = new Date();
         collection.insert({
             project_id:body.project_id,
             description: body.description,
             type:body.type,
             amount:body.amount,
             source:body.source,
-            timestamp:new Date()
+            timestamp:date.prototype.getDate()+ " "+date.prototype.getMonth()+ " "+date.prototype.getYear(),
         }) // insert
         .then(result =>{
             res.send({
