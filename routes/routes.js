@@ -355,12 +355,30 @@ db.createCollection( "user-collection", {
     validationAction: "error" // "warn" to allow wrong entries with warning
  } )
 
-    // app.post('api/login',(req,res)=>{
-    //     let username = req.body.username;
-    //     let password = req.body.password;
+    app.post('/api/login',(req,res)=>{
+        let username = req.body.username;
+        let password = req.body.password;
   
-         
-    // })
+        const collection = db.collection(USER);
+        collection.findOne({username:username, password:password}, (err,user)=>{
+            if(err){
+                console.log(err);
+                return res.status(500).send();
+            }
+
+            if(!user){
+                return res.status(404).send();
+            }
+            req.session.user = user;
+            return res.status(200).send();
+        })
+
+    })
+
+    app.get('/api/logout/', (req,res)=>{
+        req.session.destroy();
+        return res.status(200).send();
+    })
   
     app.post("/api/register",(req,res)=>{
         // let username = req.body.username;
@@ -387,6 +405,14 @@ db.createCollection( "user-collection", {
                 message: err
             })
         })
+    })
+
+    app.get('/api/dashboard',(req,res)=>{
+        if(!req.session.user){
+            return res.status(401).send();
+        }
+
+        return res.status(200).send("welcome to super secret API");
     })
 
 
