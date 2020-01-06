@@ -1,7 +1,11 @@
 const ObjectID = require("mongodb").ObjectID;
 const PROJECT = "project-collection";
 const TRANSACTION = "transaction-collection";
+const USER = "user-collection";
+
 module.exports = function(app, db) {
+    
+
   /*-------------------------- PROJECT---------------------------------- */
 
   // post request to create new project
@@ -327,6 +331,65 @@ module.exports = function(app, db) {
     }
   });
 
+/*--------------------------USER------------------------- */
+db.createCollection( "user-collection", {
+    validator: { $jsonSchema: {
+       bsonType: "object",
+       required: [ "username","email", "password" ],
+       properties: {
+          username: {
+             bsonType: "string",
+             description: "must be a string and is required"
+          },
+          email: {
+             bsonType : "string",
+             pattern : "@ledger\.com$", //"@mongodb\.com$"
+             description: "must be a string and match the regular expression pattern"
+          },
+          password: {
+            bsonType: "string",
+            description: "must be a string and is required"
+          }
+       }
+    } },
+    validationAction: "error" // "warn" to allow wrong entries with warning
+ } )
+
+    // app.post('api/login',(req,res)=>{
+    //     let username = req.body.username;
+    //     let password = req.body.password;
+  
+         
+    // })
+  
+    app.post("/api/register",(req,res)=>{
+        // let username = req.body.username;
+        // let email = req.body.email;
+        // let password = req.body.password;
+        let body =  req.body;
+
+        const collection = db.collection(USER);
+        collection.insertOne({
+            username:body.username,
+            email:body.email,
+            password:body.password,
+        })
+        .then(result =>{
+            res.send({
+                status:"success",
+                message:"new user added"
+            });
+            console.log(result);
+        })
+        .catch(err =>{
+            res.status(400).send({
+                status:"db_error",
+                message: err
+            })
+        })
+    })
+
+
   /*------------------------TOOLS------------------------- */
 
   // app.get('api/tools/profitLoss/:projectId',(req,res)=>{
@@ -346,4 +409,6 @@ module.exports = function(app, db) {
   //         })
   //     }
   // })
+
+  
 };
