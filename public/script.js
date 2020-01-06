@@ -50,8 +50,8 @@ async function signUpUser() {
         "Content-Type": "application/json"
       }
     });
-
     let dataJson = await res.json();
+    console.log("Success:", JSON.stringify(dataJson));
     console.log("Successful Signup");
   } catch (error) {
     console.log("error", error);
