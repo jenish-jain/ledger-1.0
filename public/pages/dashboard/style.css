@@ -139,6 +139,9 @@ main {
   left: 50%;
   transform: translate(-50%,-50%);
 }
+#loader{
+  display:block;
+}
 .bar{
   width: 6px;
   height: 60px;

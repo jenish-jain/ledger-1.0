@@ -23,6 +23,7 @@ async function displayTransaction() {
   let transactionData = await fetchTransaction(12345);
   let transactionList = transactionData.data;
   transactionList.forEach(createTransaction);
+  document.getElementById('loader').style.display = "none"; // to remove loaderafter data is loaded
 }
 
 async function displayIncome() {
