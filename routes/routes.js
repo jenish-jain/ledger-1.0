@@ -86,7 +86,8 @@ module.exports = function(app, db) {
       collection
         .updateOne(
           { _id: new ObjectID(projectid) }, // filter
-          { $set: { isCompleted: body.isCompleted } }
+          { $set: { isCompleted: body.isCompleted }
+         },
         )
         .then(result => {
           res.status(200).send({
@@ -349,13 +350,17 @@ db.createCollection( "user-collection", {
           password: {
             bsonType: "string",
             description: "must be a string and is required"
+          },
+          projects:{
+            bsonType:"array",
+            description: "must be a string"
           }
        }
     } },
     validationAction: "error" // "warn" to allow wrong entries with warning
  } )
 
-    app.post('/api/login',(req,res)=>{
+    app.post('/api/user/login',(req,res)=>{
         let username = req.body.username;
         let password = req.body.password;
   
@@ -363,27 +368,25 @@ db.createCollection( "user-collection", {
         collection.findOne({username:username, password:password}, (err,user)=>{
             if(err){
                 console.log(err);
-                return res.status(500).send();
+                return res.status(500).send(err);
             }
 
             if(!user){
-                return res.status(404).send();
+                return res.status(404).send("please register first");
             }
             req.session.user = user;
-            return res.status(200).send();
+            return res.status(200).send("Successful login");
         })
 
     })
 
-    app.get('/api/logout/', (req,res)=>{
+    app.get('/api/user/logout/', (req,res)=>{
         req.session.destroy();
-        return res.status(200).send();
+        return res.status(200).send("user session killed");
     })
   
-    app.post("/api/register",(req,res)=>{
-        // let username = req.body.username;
-        // let email = req.body.email;
-        // let password = req.body.password;
+    app.post("/api/user/register",(req,res)=>{
+
         let body =  req.body;
 
         const collection = db.collection(USER);
@@ -407,12 +410,38 @@ db.createCollection( "user-collection", {
         })
     })
 
-    app.get('/api/dashboard',(req,res)=>{
+    app.get('/api/user/dashboard',(req,res)=>{
         if(!req.session.user){
-            return res.status(401).send();
+            return res.status(401).send("Session Expired");
         }
 
-        return res.status(200).send("welcome to super secret API");
+        return res.status(200).send(req.session.user);
+    })
+
+    app.put('/api/user',(req,res)=>{
+    const body = req.body;
+    const userId = body.userId;
+    const projectId = body.projectId;
+    if (body) {
+      const collection = db.collection(USER);
+      collection
+        .updateOne(
+          { _id: new ObjectID(userId) }, // filter
+          { $push: { projects:projectId} }
+        )
+        .then(result => {
+          res.status(200).send({
+            message: "new project added sucessfully",
+            data: result
+          });
+        })
+        .catch(error => {
+          res.status(400).send({
+            message: "update failed",
+            error: error
+          });
+        });
+    }
     })
 
 
