@@ -3,8 +3,9 @@ const hostURL = "http://localhost:3000/";
 
 async function fetchUserDetails(){
     let user = await fetch(hostURL+ "api/user/dashboard");
-    // let userJson = await user.json();
+    let userJson = await user.json();
     console.log(user);
+    console.log(userJson);
 }
 
 fetchUserDetails()

@@ -359,6 +359,7 @@ db.createCollection( "user-collection", {
     } },
     validationAction: "error" // "warn" to allow wrong entries with warning
  } )
+ db.collection('user-collection').createIndex( { "email": 1, "username": 1 }, { unique: true } )
 
     app.post('/api/user/login',(req,res)=>{
         let username = req.body.username;
@@ -396,10 +397,10 @@ db.createCollection( "user-collection", {
             password:body.password,
         })
         .then(result =>{
-            res.send({
-                status:"success",
-                message:"new user added"
-            });
+          res.send({
+            status:"success",
+            message:"new user added",
+          });
             console.log(result);
         })
         .catch(err =>{

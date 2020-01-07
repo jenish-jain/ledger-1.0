@@ -43,7 +43,7 @@ async function signUpUser() {
     password: signUpEle.password.value
   });
   try {
-    let res = await fetch(hostURL + "api/register", {
+    let res = await fetch(hostURL + "api/user/register", {
       method: "POST",
       body: data,
       headers: {
@@ -52,8 +52,41 @@ async function signUpUser() {
     });
     let dataJson = await res.json();
     console.log("Success:", JSON.stringify(dataJson));
-    console.log("Successful Signup");
+    console.log("Successful Signup");    
+    document.forms.signUpForm.reset();
+    // document.getElementById("signUpFormMsg").innerText = "please login in with your credentials";
+    alert("login with your newely created credentials");
+    document.getElementById("signIn").click();
   } catch (error) {
     console.log("error", error);
+  }
+}
+
+
+async function loginUser(){
+  event.preventDefault();
+  let loginEle = document.forms.SignInForm.elements;
+
+  let data = JSON.stringify({
+    email:loginEle.email.value,
+    password:loginEle.password.value,
+  });
+
+  try{
+    let res = await fetch(hostURL + "api/user/login",{
+      method:"POST",
+      body:data,
+      headers:{
+        "Content-Type":"application/json"
+      }
+    });
+    let dataJson = await res.json();
+    console.log("Success:", JSON.stringify(dataJson));
+    console.log("logged in Successfully"); 
+    window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
+
+  }
+  catch(error){
+
   }
 }
