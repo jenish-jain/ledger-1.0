@@ -3,9 +3,9 @@ const hostURL = "https://nameless-wave-18089.herokuapp.com/";
 
 async function fetchUserDetails(){
     let res = await fetch(hostURL+ "api/user/dashboard");
-    let userJson = await res.json();
+    // let userJson = await res.json();
     console.log(res);
-    console.log(userJson);
+    // console.log(userJson);
 }
 
 fetchUserDetails()

@@ -362,11 +362,11 @@ db.createCollection( "user-collection", {
  db.collection('user-collection').createIndex( { "email": 1 }, { unique: true } )
 
     app.post('/api/user/login',(req,res)=>{
-        let username = req.body.username;
+        let email = req.body.email;
         let password = req.body.password;
   
         const collection = db.collection(USER);
-        collection.findOne({username:username, password:password}, (err,user)=>{
+        collection.findOne({email:email, password:password}, (err,user)=>{
             if(err){
                 console.log(err);
                 return res.status(500).send(err);
