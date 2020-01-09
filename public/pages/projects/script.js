@@ -5,14 +5,12 @@ async function fetchUserDetails(){
     let cookie = document.cookie;
     let res = await fetch(hostURL + "api/user/dashboard",
     {redirect: 'follow',
-     });
+     headers:{
+        "Cookie":cookie
+      }});
     // let userJson = await res.json();
     console.log(res);
     // console.log(userJson);
 }
 
 fetchUserDetails()
-
-// headers:{
-//     "Cookie":cookie
-//   }
