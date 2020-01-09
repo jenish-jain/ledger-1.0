@@ -76,6 +76,7 @@ async function loginUser(){
     let res = await fetch(hostURL + "api/user/login",{
       method:"POST",
       body:data,
+      redirect: 'follow',
       headers:{
         "Content-Type":"application/json"
       }
