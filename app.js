@@ -11,10 +11,10 @@ const port = process.env.PORT || 3000;
 
 //defining midlewares
 
+app.use(session({secret:"g36sf465b4fs6b84s364af368g4fb", resave:false, saveUninitialized:true}));
 app.use(express.json());
 app.use(middlewares.preventCROS);
 app.use(express.static("public"));
-app.use(session({secret:"g36sf465b4fs6b84s364af368g4fb", resave:false, saveUninitialized:true}));
 
 
 app.get('/',(req,res)=>{
