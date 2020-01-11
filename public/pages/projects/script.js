@@ -23,6 +23,7 @@ async function fetchUserDetails(){
 }
 
 function createProjectCard(project){
+  let projectPanel = document.getElementById('project-panel');
   var cardBody = document.createElement('div');
   cardBody.classList.add('projCard');
   var projName = document.createElement('p');
@@ -32,6 +33,7 @@ function createProjectCard(project){
   button.innerText = "open project";
   cardBody.appendChild(projName);
   cardBody.appendChild(button);
+  projectPanel.appendChild(cardBody);
 }
 
 showUserInfo();

@@ -43,3 +43,29 @@ body{
 #logout:active{
     transform: scale(0.92);
 }
+
+.cardBtn{
+    background-color: rgba(2, 2, 58,0.8);
+    border:none;
+    outline:none;
+    cursor: pointer;
+    color:whitesmoke;
+    padding:6px;
+    border-radius:3px;
+    margin:15px 0px;
+    font-size: 17px;
+}
+.cardBtn:hover{
+    background-color: rgba(2, 2, 58,0.4);
+}
+.cardBtn:active{
+    transform: scale(0.92);
+}
+
+.projCard{
+    border:1px solid rgba(2, 2, 58,1);
+    border-radius:5px;
+    height:50px;
+    width:200px;
+    padding:20px;
+}
