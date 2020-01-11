@@ -1,5 +1,5 @@
-// const hostURL = "https://nameless-wave-18089.herokuapp.com/";
-const hostURL = "http://localhost:3000/";
+const hostURL = "https://nameless-wave-18089.herokuapp.com/";
+// const hostURL = "http://localhost:3000/";
 console.log("oyee");
 const loginbtn = document.getElementById("loginbtn");
 const modal = document.getElementById("signin-modal");
