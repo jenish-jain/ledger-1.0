@@ -19,7 +19,7 @@ async function fetchUserDetails(){
     let user = await fetchUserDetails();
     console.log(user);
     document.getElementById('user').innerText = user.username;  
-    user.project.forEach(createProjectCard);
+    user.projects.forEach(createProjectCard);
 }
 
 function createProjectCard(project){
