@@ -9,8 +9,11 @@ async function fetchUserDetails(){
         "Cookie":cookie
       }});
     let userJson = await res.json();
-    console.log(res);
-    console.log(userJson);
+    // console.log(res);
+    // console.log(userJson);
+    return userJson;
 }
 
-fetchUserDetails()
+let res = await fetchUserDetails();
+document.getElementById('username').innerText = res.username;
+
