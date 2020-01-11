@@ -14,6 +14,6 @@ async function fetchUserDetails(){
     return userJson;
 }
 
-let res = await fetchUserDetails();
+window.onload(fetchUserDetails());
 document.getElementById('username').innerText = res.username;
 
