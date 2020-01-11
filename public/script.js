@@ -65,7 +65,7 @@ async function signUpUser() {
 }
 
 
- function loginUser(){
+ async function loginUser(){
   event.preventDefault();
   let loginEle = document.forms.signInForm.elements;
 
@@ -75,7 +75,7 @@ async function signUpUser() {
   });
 
  
-    let res =  fetch(hostURL + "api/user/login",{
+    let res =  await fetch(hostURL + "api/user/login",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -85,8 +85,8 @@ async function signUpUser() {
     }).then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
-    let dataJson =  res.json();
-    console.log("Success:", JSON.stringify(dataJson));
+    // let dataJson =  res.json();
+    // console.log("Success:", JSON.stringify(dataJson));
     window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
 }
 
