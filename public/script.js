@@ -84,8 +84,22 @@ async function loginUser(){
     let dataJson = await res.json();
     console.log("Success:", JSON.stringify(dataJson));
     console.log("logged in Successfully"); 
-    window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
+    // window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
 
+
+    async function fetchUserDetails(){
+      let cookie = document.cookie;
+      let res = await fetch(hostURL + "api/user/dashboard",
+      {redirect: 'follow',
+       headers:{
+          "Cookie":cookie
+        }});
+      // let userJson = await res.json();
+      console.log(res);
+      // console.log(userJson);
+  }
+  
+  fetchUserDetails()
   }
   catch(error){
 
