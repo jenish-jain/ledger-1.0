@@ -11,8 +11,9 @@ async function fetchUserDetails(){
     let userJson = await res.json();
     console.log(res);
     console.log(userJson);
-    // return userJson;
-    document.getElementById('username').innerText = userJson.username;
+    return userJson;
+    // document.getElementById('user').innerText = userJson.username;
 }
 
-
+let user = await fetchUserDetails();
+console.log(user);
