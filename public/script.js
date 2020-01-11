@@ -85,8 +85,8 @@ async function signUpUser() {
     }).then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
-    // let dataJson =  res.json();
-    // console.log("Success:", JSON.stringify(dataJson));
+    let dataJson =  res.json();
+    console.log("Success:", JSON.stringify(dataJson));
     window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
 }
 

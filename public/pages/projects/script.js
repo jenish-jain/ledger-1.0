@@ -8,9 +8,9 @@ async function fetchUserDetails(){
      headers:{
         "Cookie":cookie
       }});
-    // let userJson = await res.json();
+    let userJson = await res.json();
     console.log(res);
-    // console.log(userJson);
+    console.log(userJson);
 }
 
 fetchUserDetails()
