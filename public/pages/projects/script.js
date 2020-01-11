@@ -1,5 +1,5 @@
-// const hostURL = "https://nameless-wave-18089.herokuapp.com/";
-const hostURL = "http://localhost:3000/";
+const hostURL = "https://nameless-wave-18089.herokuapp.com/";
+// const hostURL = "http://localhost:3000/";
 
 async function fetchUserDetails(){
     let cookie = document.cookie;
