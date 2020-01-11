@@ -67,7 +67,7 @@ async function signUpUser() {
 
  function loginUser(){
   event.preventDefault();
-  let loginEle = document.forms.SignInForm.elements;
+  let loginEle = document.forms.signInForm.elements;
 
   let data = JSON.stringify({
     email:loginEle.email.value,
