@@ -13,8 +13,8 @@ async function fetchUserDetails(){
     console.log(userJson);
 
     return userJson;
-    document.getElementById('user').innerText = userJson.username;
-}
-
-let user = fetchUserDetails();
+  }
+  
+  let user = fetchUserDetails();
+  document.getElementById('user').innerText = user.username;
 console.log(user);
