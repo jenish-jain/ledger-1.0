@@ -82,10 +82,11 @@ async function loginUser(){
       },
       body:data,
       redirect: 'follow'
-    })
+    });
     let dataJson = await res.json();
     console.log("Success:", JSON.stringify(dataJson));
     console.log("logged in Successfully"); 
+    document.forms.signUpForm.reset();
     window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
 }
 
