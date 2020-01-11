@@ -88,6 +88,6 @@ async function loginUser(){
     let dataJson = await res.json();
     console.log("Success:", JSON.stringify(dataJson));
     console.log("logged in Successfully"); 
-    // window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
+    window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
 }
 
