@@ -11,10 +11,10 @@ async function fetchUserDetails(){
     let userJson = await res.json();
     console.log(res);
     console.log(userJson);
-
     return userJson;
   }
-  
+
   let user = fetchUserDetails();
+  console.log(user);
   document.getElementById('user').innerText = user.username;
 console.log(user);
