@@ -1,5 +1,5 @@
-const hostURL = "https://nameless-wave-18089.herokuapp.com/";
-// const hostURL = "http://localhost:3000/";
+// const hostURL = "https://nameless-wave-18089.herokuapp.com/";
+const hostURL = "http://localhost:3000/";
 
 async function fetchUserDetails(){
     let cookie = document.cookie;
@@ -9,11 +9,10 @@ async function fetchUserDetails(){
         "Cookie":cookie
       }});
     let userJson = await res.json();
-    // console.log(res);
-    // console.log(userJson);
-    return userJson;
+    console.log(res);
+    console.log(userJson);
+    // return userJson;
+    document.getElementById('username').innerText = res.username;
 }
 
-window.onload(fetchUserDetails());
-document.getElementById('username').innerText = res.username;
 

@@ -1,6 +1,6 @@
-const hostURL = "https://nameless-wave-18089.herokuapp.com/";
-// const hostURL = "http://localhost:3000/";
-
+// const hostURL = "https://nameless-wave-18089.herokuapp.com/";
+const hostURL = "http://localhost:3000/";
+console.log("oyee");
 const loginbtn = document.getElementById("loginbtn");
 const modal = document.getElementById("signin-modal");
 
@@ -68,25 +68,40 @@ async function signUpUser() {
 async function loginUser(){
   event.preventDefault();
   let loginEle = document.forms.signInForm.elements;
-
-  let data = JSON.stringify({
-    email:loginEle.email.value,
-    password:loginEle.password.value,
-  });
-
- 
-    let res = await fetch(hostURL + "api/user/login",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:data,
-      redirect: 'follow'
+  let userEmail = loginEle.email.value;
+  let userPass = loginEle.password.value;
+  console.log(userEmail);
+  if(userEmail=="" && userPass== ""){
+    document.getElementById("signInFormMsg").innerText ="email and password field cannot be empty";
+  }else if(userEmail == ""){
+    document.getElementById("signInFormMsg").innerText ="email field cannot be empty";
+  }else if(userPass == ""){
+    document.getElementById("signInFormMsg").innerText="password field cannot be empty";
+  }else{
+    
+    let data = JSON.stringify({
+      email:userEmail,
+      password:userPass,
     });
-    // let dataJson = await res.json();
-    // console.log("Success:", JSON.stringify(dataJson));
-    console.log("logged in Successfully"); 
-    document.forms.signUpForm.reset();
-    window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
+    
+      let res = await fetch(hostURL + "api/user/login",{
+        method:"POST",
+        body:data,
+        headers:{
+          "Content-Type":"application/json"
+        },
+        redirect: 'follow'
+      });
+      if(res.status == "404"){
+        // document.getElementById('signInFormMsg').innerText = "please register first";
+        alert("no user exist with this name , please register first");
+        document.getElementById('signUp').click();
+      }else if(res.status == "200"){
+        window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
+      }else{
+        alert(res.text());
+      }
+      document.forms.signInForm.reset();
+  }
 }
 
