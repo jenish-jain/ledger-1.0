@@ -10,6 +10,7 @@
   "author": "jenish jain",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "mongodb": "^3.4.0"
