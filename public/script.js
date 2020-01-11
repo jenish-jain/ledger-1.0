@@ -1,4 +1,6 @@
-const hostURL = "https://nameless-wave-18089.herokuapp.com/";
+// const hostURL = "https://nameless-wave-18089.herokuapp.com/";
+const hostURL = "http://localhost:3000/";
+
 const loginbtn = document.getElementById("loginbtn");
 const modal = document.getElementById("signin-modal");
 
@@ -72,35 +74,20 @@ async function loginUser(){
     password:loginEle.password.value,
   });
 
-  try{
+ 
     let res = await fetch(hostURL + "api/user/login",{
       method:"POST",
-      body:data,
-      redirect: 'follow',
       headers:{
         "Content-Type":"application/json"
-      }
-    });
+      },
+      body:data,
+      redirect: 'follow'
+    }).then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
     let dataJson = await res.json();
     console.log("Success:", JSON.stringify(dataJson));
     console.log("logged in Successfully"); 
     // window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
-    await fetchUserDetails()
-
-  }
-  catch(error){
-
-  }
 }
 
-async function fetchUserDetails(){
-  let cookie = document.cookie;
-  let res = await fetch(hostURL + "api/user/dashboard",
-  {redirect: 'follow',
-   headers:{
-      "Cookie":cookie
-    }});
-  // let userJson = await res.json();
-  console.log(res);
-  // console.log(userJson);
- }
