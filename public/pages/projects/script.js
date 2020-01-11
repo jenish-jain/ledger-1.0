@@ -16,10 +16,10 @@ async function fetchUserDetails(){
 
   
   async function showUserInfo(){
-    let user = fetchUserDetails();
+    let user = await fetchUserDetails();
     console.log(user);
     document.getElementById('user').innerText = user.username;  
-    user.project.array.forEach(createProjectCard);
+    user.project.forEach(createProjectCard);
 }
 
 function createProjectCard(project){
