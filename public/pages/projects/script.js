@@ -14,7 +14,24 @@ async function fetchUserDetails(){
     return userJson;
   }
 
-  let user = fetchUserDetails();
-  console.log(user);
-  document.getElementById('user').innerText = user.username;
-console.log(user);
+  
+  async function showUserInfo(){
+    let user = fetchUserDetails();
+    console.log(user);
+    document.getElementById('user').innerText = user.username;  
+    user.project.array.forEach(createProjectCard);
+}
+
+function createProjectCard(project){
+  var cardBody = document.createElement('div');
+  cardBody.classList.add('projCard');
+  var projName = document.createElement('p');
+  projName.innerText = project._id;
+  var button = document.createElement('button');
+  button.classList.add('cardBtn');
+  button.innerText = "open project";
+  cardBody.appendChild(projName);
+  cardBody.appendChild(button);
+}
+
+showUserInfo();
