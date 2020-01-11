@@ -23,7 +23,7 @@ async function fetchUserDetails(){
 }
 
 function createProjectCard(project){
-  let projectPanel = document.getElementById('project-panel');
+  let projectPanel = document.getElementById('live-proj');
   var cardBody = document.createElement('div');
   cardBody.classList.add('projCard');
   var projName = document.createElement('p');
@@ -37,3 +37,15 @@ function createProjectCard(project){
 }
 
 showUserInfo();
+
+async function logout(){
+  
+  fetch( hostURL+"/api/user/logout",{
+    method: 'GET',
+    redirect: 'follow'
+  }).then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+    window.location.assign("https://nameless-wave-18089.herokuapp.com/");
+}
