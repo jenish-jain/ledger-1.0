@@ -12,7 +12,7 @@ async function fetchUserDetails(){
     console.log(res);
     console.log(userJson);
     // return userJson;
-    document.getElementById('username').innerText = res.username;
+    document.getElementById('username').innerText = userJson.username;
 }
 
 
