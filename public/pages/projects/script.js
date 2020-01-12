@@ -28,9 +28,10 @@ function createProjectCard(project){
   cardBody.classList.add('projCard');
   let projName = document.createElement('p');
   projName.classList.add('card-title');
-  projName.innerText = project;
+  projName.innerText = project.name;
   let projDesc = document.createElement('p');
   projDesc.classList.add('card-description');
+  projDesc.innerHTML='<span>Start Date</span> ' + project.startDate + '<br/><span>Status </span>' + project.status ;
   let button = document.createElement('button');
   button.classList.add('cardBtn','tooltip');
   button.innerHTML ='<i class="material-icons">double_arrow</i><span class="tooltiptext">Go to your project</span>' ;
@@ -52,4 +53,23 @@ async function logout(){
     .catch(error => console.log('error', error));
 
     window.location.assign("https://nameless-wave-18089.herokuapp.com/");
+}
+
+async function createNewProj(){
+  let projName = document.getElementById('newProjName').innerText;
+  let body=JSON.stringify({
+    name:projName,
+    startDate:Date.now(),
+    status:"Ongoing"
+  })
+
+  let res= await fetch(hostURL+"api/user",{
+    method: 'PUT',
+    headers: myHeaders,
+    body: body,
+    redirect: 'follow'
+  })
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 }

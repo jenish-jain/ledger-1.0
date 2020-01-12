@@ -111,8 +111,15 @@ body{
     padding:12px;
 }
 
-#create-new-project{
-
+.card-input{
+    border:none;
+    height:2rem;
+    outline: none;
+    border-bottom: 1px solid lightgrey;
+    background-color: ghostwhite;
+    margin:5px;
+    font-family:'Quicksand', sans-serif;
+    font-size: 22px ;
 }
 
 .tooltip {
