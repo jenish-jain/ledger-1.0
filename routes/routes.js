@@ -424,17 +424,18 @@ db.createCollection( "user-collection", {
     const userId = body.userId;
     const name = body.name;
     const startDate =Date.now();
-    const status = "ongoing";
+    const status = "ongoing"
     if (body) {
       const collection = db.collection(USER);
       collection
         .updateOne(
           { _id: new ObjectID(userId) }, // filter
-          { $push: { 
+          { $push: { projects:{
+            // id: new ObjectID(_id)
             name:name,
             startDate:startDate,
-            status:status,
-           } }
+            status:status
+          }} }
         )
         .then(result => {
           res.status(200).send({
