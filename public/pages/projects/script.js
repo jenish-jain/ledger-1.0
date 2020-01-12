@@ -28,7 +28,7 @@ function createProjectCard(project){
   cardBody.classList.add('projCard');
   let projName = document.createElement('p');
   projName.classList.add('card-title');
-  projName.innerText = project[0];
+  projName.innerText = project;
   let projDesc = document.createElement('p');
   projDesc.classList.add('card-description');
   let button = document.createElement('button');
