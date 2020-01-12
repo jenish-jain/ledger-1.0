@@ -65,7 +65,7 @@ async function createNewProj(){
     startDate:Date.now(),
     status:"Ongoing"
   })
-
+  console.log(body);
   let res= await fetch(hostURL+"api/user",{
     method: 'PUT',
     headers: {"Content-Type": "application/json"},
@@ -75,4 +75,6 @@ async function createNewProj(){
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
+
+  console.log(res);
 }
