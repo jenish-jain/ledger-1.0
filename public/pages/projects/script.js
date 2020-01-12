@@ -56,14 +56,14 @@ async function logout(){
 
 async function createNewProj(){
   let user = await fetchUserDetails();
-  let projName = document.getElementById('newProjName').innerText;
+  let projName = document.getElementById('newProjName').value;
   let userId = user._id;
     console.log(userId);
   let body=JSON.stringify({
     userId:userId,
     name:projName,
-    startDate:Date.now(),
-    status:"Ongoing"
+    // startDate:Date.now(),
+    // status:"Ongoing"
   })
   console.log(body);
   let res= await fetch(hostURL+"api/user",{
