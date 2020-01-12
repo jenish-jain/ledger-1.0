@@ -353,7 +353,7 @@ db.createCollection( "user-collection", {
           },
           projects:{
             bsonType:"array",
-            description: "must be a string"
+            description: "must be a object"
           }
        }
     } },
