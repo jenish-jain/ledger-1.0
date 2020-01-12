@@ -58,6 +58,7 @@ async function createNewProj(){
   let user = await fetchUserDetails();
   let projName = document.getElementById('newProjName').innerText;
   let userId = user._id;
+    console.log(userId);
   let body=JSON.stringify({
     userId:userId,
     name:projName,
