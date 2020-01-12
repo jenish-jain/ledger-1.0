@@ -78,3 +78,7 @@ async function createNewProj(){
 
   console.log(res);
 }
+
+// name:name,
+//             startDate:startDate,
+//             status:status,

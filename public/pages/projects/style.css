@@ -50,6 +50,14 @@ body{
     padding:3rem;
     flex-wrap: wrap;
  }
+
+ .live-proj{
+     display: flex;
+     flex-direction: row;
+     align-items: flex-start;
+ }
+
+
 .cardBtn{
     background-color: rgba(2, 2, 58,1);
     border:none;
@@ -79,7 +87,7 @@ body{
     background-color: ghostwhite;
     box-shadow: 5px 6px 15px rgba(2, 2, 58,0.4);
     border-radius:2px 2px 95px 2px;
-    padding:20px;
+    padding:20px 50px;
     margin:20px;
     display: flex;
     font-family: 'Quicksand', sans-serif;
