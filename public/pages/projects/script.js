@@ -1,7 +1,7 @@
 const hostURL = "https://nameless-wave-18089.herokuapp.com/";
 // const hostURL = "http://localhost:3000/";
 
-let user = async function fetchUserDetails(){
+ async function fetchUserDetails(){
     let cookie = document.cookie;
     let res = await fetch(hostURL + "api/user/dashboard",
     {redirect: 'follow',
@@ -14,13 +14,14 @@ let user = async function fetchUserDetails(){
     return userJson;
   }
 
- function showUserInfo(){
+ async function showUserInfo(){
+   let user = await fetchUserDetails();
     document.getElementById('user').innerText = user.username;  
     user.projects.forEach(createProjectCard);
   }
   
   showUserInfo();
-  
+
 function createProjectCard(project){
   let projectPanel = document.getElementById('live-proj');
   let cardBody = document.createElement('div');
@@ -54,6 +55,7 @@ async function logout(){
 }
 
 async function createNewProj(){
+  let user = await fetchUserDetails();
   let projName = document.getElementById('newProjName').innerText;
   let userId = user._id;
   let body=JSON.stringify({
