@@ -51,7 +51,7 @@ body{
     flex-wrap: wrap;
  }
 
- .live-proj{
+ #live-proj{
      display: flex;
      flex-direction: row;
      align-items: flex-start;
