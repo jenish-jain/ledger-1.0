@@ -15,7 +15,7 @@ async function fetchUserDetails(){
   }
 
   
-  async function showUserInfo(){
+async function showUserInfo(){
     let user = await fetchUserDetails();
     console.log(user);
     document.getElementById('user').innerText = user.username;  
@@ -24,14 +24,18 @@ async function fetchUserDetails(){
 
 function createProjectCard(project){
   let projectPanel = document.getElementById('live-proj');
-  var cardBody = document.createElement('div');
+  let cardBody = document.createElement('div');
   cardBody.classList.add('projCard');
-  var projName = document.createElement('p');
-  projName.innerText = project._id;
-  var button = document.createElement('button');
-  button.classList.add('cardBtn');
-  button.innerText = "open project";
+  let projName = document.createElement('p');
+  projName.classList.add('card-title');
+  projName.innerText = project[0];
+  let projDesc = document.createElement('p');
+  projDesc.classList.add('card-description');
+  let button = document.createElement('button');
+  button.classList.add('cardBtn tooltip');
+  button.innerHTML ='<i class="material-icons">double_arrow</i><span class="tooltiptext">Go to your project</span>' ;
   cardBody.appendChild(projName);
+  cardBody.appendChild(projDesc);
   cardBody.appendChild(button);
   projectPanel.appendChild(cardBody);
 }

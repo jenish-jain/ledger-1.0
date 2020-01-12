@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap");
-
-
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap');
 *{
     padding:0;
     margin:0;
@@ -43,30 +42,98 @@ body{
 #logout:active{
     transform: scale(0.92);
 }
-
+ #project-panel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding:3rem;
+    flex-wrap: wrap;
+ }
 .cardBtn{
-    background-color: rgba(2, 2, 58,0.8);
+    background-color: rgba(2, 2, 58,1);
     border:none;
     outline:none;
     cursor: pointer;
     color:whitesmoke;
     padding:6px;
-    border-radius:3px;
-    margin:15px 0px;
+    border-radius:50%;
+    /* margin:15px 0px; */
     font-size: 17px;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    bottom:0;
+    right:0;
 }
 .cardBtn:hover{
-    background-color: rgba(2, 2, 58,0.4);
+    background-color: rgba(2, 2, 58,0.9);
+
 }
 .cardBtn:active{
     transform: scale(0.92);
 }
 
 .projCard{
-    border:1px solid rgba(2, 2, 58,1);
-    border-radius:5px;
-    height:50px;
-    width:200px;
+    border:1px solid rgba(2, 2, 58,0.5);
+    background-color: ghostwhite;
+    box-shadow: 5px 6px 15px rgba(2, 2, 58,0.4);
+    border-radius:2px 2px 95px 2px;
     padding:20px;
     margin:20px;
+    display: flex;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:210px;
+    /* max-height: 210px; */
+    width:390px;
+    /* max-width: 390px; */
+    position: relative;
 }
+
+.card-title{
+    border:1px solid rgba(2, 2, 58,0.8);
+    background-color: rgb(2, 2, 58);
+    color:whitesmoke;
+    text-align: center;
+    /* border-radius:2px 2px 15px 2px; */
+    font-family:'Quicksand', sans-serif;
+    font-size: 25px;
+    font-weight:600;
+    border-radius: 10px;
+    position: absolute;
+    top:-20px;
+    height:30px;
+    width:350px;
+    padding:12px;
+}
+
+#create-new-project{
+
+}
+
+.tooltip {
+    display: inline-block;
+  }
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
