@@ -32,7 +32,7 @@ function createProjectCard(project){
   let projDesc = document.createElement('p');
   projDesc.classList.add('card-description');
   let button = document.createElement('button');
-  button.classList.add('cardBtn tooltip');
+  button.classList.add('cardBtn','tooltip');
   button.innerHTML ='<i class="material-icons">double_arrow</i><span class="tooltiptext">Go to your project</span>' ;
   cardBody.appendChild(projName);
   cardBody.appendChild(projDesc);
