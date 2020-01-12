@@ -68,7 +68,7 @@ async function createNewProj(){
 
   let res= await fetch(hostURL+"api/user",{
     method: 'PUT',
-    headers: myHeaders,
+    headers: {"Content-Type": "application/json"},
     body: body,
     redirect: 'follow'
   })
