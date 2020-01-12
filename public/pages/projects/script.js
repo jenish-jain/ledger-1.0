@@ -34,6 +34,7 @@ function createProjectCard(project){
   projDesc.innerHTML='<span>Start Date</span> ' + project.startDate + '<br/><span>Status </span>' + project.status ;
   let button = document.createElement('button');
   button.classList.add('cardBtn','tooltip');
+  button.setAttribute('onclick','goToProject()');
   button.innerHTML ='<i class="material-icons">double_arrow</i><span class="tooltiptext">Go to your project</span>' ;
   cardBody.appendChild(projName);
   cardBody.appendChild(projDesc);
@@ -82,3 +83,7 @@ async function createNewProj(){
 // name:name,
 //             startDate:startDate,
 //             status:status,
+
+function goToProject(){
+  window.location.assign('https://nameless-wave-18089.herokuapp.com/pages/dashboard/index.html');
+}
