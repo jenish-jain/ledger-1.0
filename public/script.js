@@ -1,6 +1,7 @@
-const hostURL = "https://nameless-wave-18089.herokuapp.com/";
+const config = require('../config/config');
+const hostURL = config.host_url;
+
 // const hostURL = "http://localhost:3000/";
-console.log("oyee");
 const loginbtn = document.getElementById("loginbtn");
 const modal = document.getElementById("signin-modal");
 
@@ -97,7 +98,7 @@ async function loginUser(){
         alert("no user exist with this name , please register first");
         document.getElementById('signUp').click();
       }else if(res.status == "200"){
-        window.location.assign("https://nameless-wave-18089.herokuapp.com/pages/projects/index.html");
+        window.location.assign(hostURL+"/pages/projects/index.html");
       }else{
         alert(res.text());
       }

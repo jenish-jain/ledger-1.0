@@ -1,4 +1,5 @@
-const hostURL = "https://nameless-wave-18089.herokuapp.com/";
+const config = require('../../../config/config');
+const hostURL = config.host_url;
 // const hostURL = "https://localhost:3000/" // local host
 const mainTable = document.getElementById("main-table");
 const incomeTable = document.getElementById("income-table");
