@@ -1,4 +1,5 @@
-const hostURL = "https://nameless-wave-18089.herokuapp.com/";
+const config = require('../../../config/config')
+const hostURL = config.host_url;
 // const hostURL = "http://localhost:3000/";
 
  async function fetchUserDetails(){
@@ -52,7 +53,7 @@ async function logout(){
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
 
-    window.location.assign("https://nameless-wave-18089.herokuapp.com/");
+    window.location.assign(hostURL);
 }
 
 async function createNewProj(){
@@ -85,5 +86,5 @@ async function createNewProj(){
 //             status:status,
 
 function goToProject(){
-  window.location.assign('https://nameless-wave-18089.herokuapp.com/pages/dashboard/index.html');
+  window.location.assign(hostURL+ '/pages/dashboard/index.html');
 }
