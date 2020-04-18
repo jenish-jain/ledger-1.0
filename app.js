@@ -8,7 +8,7 @@ const session = require("express-session");
 
 const app = express();
 
-const port = process.env.PORT || 83;
+const port = process.env.PORT || 3002;
 
 //defining midlewares
 
